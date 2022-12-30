@@ -1,0 +1,43 @@
+@layer base {
+  .container-image {
+    @apply bg-fixed bg-center bg-contain relative w-full md:w-[40vw] py-[4vh] md:py-[10vh] text-3xl flex flex-col justify-center text-center align-middle cursor-pointer;
+  }
+  .container-bg-1 {
+    @apply bg-gradient-to-br from-myiris to-mytan;
+  }
+  .container-bg-2 {
+    @apply bg-gradient-to-bl from-mydarkpurple to-myaqua;
+  }
+  .container-1 {
+    @apply container-image container-bg-2 font-PirataOne;
+  }
+  .container-1:first-child {
+    @apply font-Audiowide;
+  }
+  .container-2 {
+    @apply container-image container-bg-1 font-VT323;
+  }
+  .container-image-before {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    transition: opacity 0.5s linear;
+    opacity: 0;
+  }
+  .container-1::before {
+    @apply container-image container-bg-1 container-image-before;
+  }
+  .container-2::before {
+    @apply container-image container-bg-2 container-image-before;
+  }
+  .container-1:hover::before {
+    opacity: 1;
+  }
+  .container-2:hover::before {
+    opacity: 1;
+  }
+}

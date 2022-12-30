@@ -1,0 +1,28 @@
+{
+  "functions": [
+    {
+      "source": ".output/server",
+      "runtime": "nodejs14",
+      "predeploy": [
+        "cd ./.output/server && npm install"
+      ],
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log"
+      ],
+      "codebase": "default"
+    }
+  ],
+  "hosting": {
+    "public": ".output/public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "cleanUrls": true,
+    "rewrites": [{ "source": "**", "function": "server" }]
+  }
+}

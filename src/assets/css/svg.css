@@ -1,0 +1,16 @@
+@layer base {
+  .svg-image {
+    @apply bg-fixed bg-center bg-contain relative inline-block cursor-pointer;
+  }
+  .svg-bg {
+    fill: url(#g-2);
+  }
+  .svg::before{
+    content: url();
+    width: 200px;
+    height: 200px;
+  }
+  .svg {
+    @apply svg-image svg-bg;
+  }
+}

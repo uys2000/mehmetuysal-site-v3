@@ -1,0 +1,10 @@
+.*
+!.vscode
+!.gitignore
+.firebaserc
+node_modules
+yarn.lock
+yarn-e*
+*/**/service-account*
+src/server/utils/serviceAccount.json
+ui-debug.log

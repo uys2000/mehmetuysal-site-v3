@@ -1,0 +1,67 @@
+@layer base {
+  .terminal {
+    @apply w-full h-full overflow-hidden m-auto rounded-t-xl focus:outline-none bg-[#50505020] flex flex-col;
+  }
+  .terminal > div:first-child {
+    @apply w-full h-14 rounded-t-xl bg-[#00000090] grid grid-cols-3 shrink-0;
+  }
+  .terminal > div:first-child > div:nth-child(2) {
+    @apply flex flex-col justify-center text-center text-xl font-Audiowide;
+  }
+  .terminal > div:first-child > div:nth-child(2) > div {
+    @apply w-full text-ellipsis overflow-hidden whitespace-nowrap;
+  }
+  .terminal > div:first-child > div:nth-child(3) {
+    @apply flex flex-col justify-center text-right text-2xl m-auto mr-5 cursor-pointer w-fit font-FrederickatheGreat;
+  }
+  .terminal > div:nth-child(2) {
+    @apply overflow-x-hidden overflow-y-auto break-all shrink flex flex-col-reverse font-FrederickatheGreat;
+  }
+  .terminal textarea {
+    @apply bg-mytrans text-white w-full;
+  }
+  .terminal button{
+    @apply w-full transition-all bg-mytrans md:hidden;
+  }
+
+  .terminal p {
+    display: inline;
+  }
+  .text-g-bg {
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    padding-bottom: 10px;
+  }
+  .terminal .odd1 {
+    @apply text-g-bg;
+  }
+  .terminal .odd2 {
+    @apply text-g-bg;
+  }
+  .terminal .odd3 {
+    @apply text-g-bg;
+  }
+  .terminal .odd4 {
+    @apply text-g-bg;
+  }
+  .terminal .odd1 {
+    background-color: red;
+    background-image: linear-gradient(45deg, #c8f7ff, #751bb0);
+  }
+  .terminal .odd2 {
+    background-color: red;
+    background-image: linear-gradient(45deg, #f3ec78, #af4261);
+  }
+  .terminal .odd3 {
+    background-color: red;
+    background-image: linear-gradient(45deg, #751bb0, #c8f7ff);
+  }
+  .terminal .odd4 {
+    background-color: red;
+    background-image: linear-gradient(45deg, #af4261, #f3ec78);
+  }
+}

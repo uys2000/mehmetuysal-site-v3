@@ -1,0 +1,27 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import "./fonts.css";
+@import "./index.css";
+@import "./containers.css";
+@import "./terminal.css";
+@import "./svg.css";
+
+@layer base {
+  body {
+    @apply bg-black text-white bg-no-repeat bg-center bg-contain;
+  }
+  body {
+    background-image: url("~/assets/imgs/logo.jpg");
+  }
+  .cr {
+    @apply inline-block -mb-1 w-3 h-6 m-auto ml-0;
+  }
+  footer {
+    @apply absolute bottom-0 w-full left-1/2 -translate-x-1/2 px-5 font-VT323;
+  }
+  button{
+    @apply font-FrederickatheGreat
+  }
+}
