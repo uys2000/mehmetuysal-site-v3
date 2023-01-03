@@ -5,7 +5,6 @@ const keys = (obj: object) => Object.keys(obj)
 export const useDataStore = defineStore("DataStore", {
   state: () => {
     return {
-
       AnalyticsTerminal: Analytics,
       AnalyticsGeneral: Analytics,
       AnalyticsLink: Analytics,
@@ -15,20 +14,44 @@ export const useDataStore = defineStore("DataStore", {
       AnalyticsLinkData: AnalyticsData,
 
       chartData: {
-        labels: [],
+        labels: [] as string[],
         datasets: [
           {
             label: 'Data',
-            backgroundColor: '#f80079',
-            data: []
+            backgroundColor: [] as string[],
+            data: [] as number[]
           },
         ]
       }
     }
   },
   actions: {
-    addData(dataType: "terminal" | "general" | "link", key: string) { },
-    removeData() { },
+    addData(dataType: "terminal" | "general" | "link", key: string) {
+      const data = dataType == "terminal" ? this.AnalyticsTerminal : dataType == "general" ? this.AnalyticsGeneral : this.AnalyticsLink
+      const colour = dataType == "terminal" ? "#900" : dataType == "general" ? "#090" : "#009"
+      this.chartData.labels = this.chartData.labels.concat([key])
+      this.chartData.datasets[0].data = this.chartData.datasets[0].data.concat([data[key]])
+      this.chartData.datasets[0].backgroundColor = this.chartData.datasets[0].backgroundColor.concat([colour])
+    },
+    removeData(key: string) {
+      console.log(key)
+      const dataIndex = this.chartData.labels.findIndex(item => item == key)
+      const newDatas = [] as number[]
+      const newLabels = [] as string[]
+      const newColors = [] as string[]
+      console.log(key)
+      for (let i = 0; i < this.chartData.labels.length; i++) {
+        if (i == dataIndex) continue
+        newLabels.push(this.chartData.labels[i])
+        newDatas.push(this.chartData.datasets[0].data[i])
+        newColors.push(this.chartData.datasets[0].backgroundColor[i])
+      }
+      console.log(key)
+      this.chartData.labels = newLabels
+      this.chartData.datasets[0].data = newDatas
+      this.chartData.datasets[0].backgroundColor = newColors
+      console.log(key)
+    },
     setMainData(collections: QuerySnapshot<DocumentData>) {
       collections.docs.map(document => {
         if (document.id == "AnalyticsLink") this.AnalyticsLink = document.data()

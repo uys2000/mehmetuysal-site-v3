@@ -15,21 +15,8 @@ export default defineComponent({
       mainStore: useMainStore(),
     }
   },
-  methods: {
-    createBaseTags() {
-      const theHead = document.head;
-      console.log(theHead)
-      const scriptTag1 = document.createElement("script")
-      scriptTag1.setAttribute("src", "https://www.googletagmanager.com/gtag/js?id=G-K8MGJSPL5Y")
-      scriptTag1.setAttribute("async", "")
-      const scriptTag2 = document.createElement("script")
-      scriptTag2.innerText = `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);}gtag('js', new Date()); gtag('config', 'G-K8MGJSPL5Y');`
-      theHead.appendChild(scriptTag1)
-      theHead.appendChild(scriptTag2)
-    }
-  },
   mounted() {
-    const text=`
+    const text = `
                                    .oooo.     .oooo.     .oooo.     .oooo.   
                                  .dP""Y88b   d8P' Y8b   d8P' Y8b   d8P' Y8b  
 oooo  oooo  oooo    ooo  .oooo.o       ]8P' 888    888 888    888 888    888 
@@ -39,14 +26,13 @@ oooo  oooo  oooo    ooo  .oooo.o       ]8P' 888    888 888    888 888    888
  'V88V"V8P'     .8'     8""888P' 8888888888  'Y8bd8P'   'Y8bd8P'   'Y8bd8P'  
             .o..P'                                                           
             'Y8P'
+data/chartTypes = ["bar", "pie", "doughnut", "line", "polarArea", "radar"] 
+You can check out recorded data with https://mehmetuysal.dev/data/bar 
 `
     console.log(text)
-    initializeAnalytics()
+    //initializeAnalytics()
     initializeFirebase()
     initializeAuth()
-  },
-  rendered() {
-    this.createBaseTags()
   },
   beforeCreate() {
     useFetch('/api/getCommands').then(result => {

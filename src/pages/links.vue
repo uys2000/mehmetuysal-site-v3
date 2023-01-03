@@ -5,8 +5,7 @@
         @click="sendData('linkedin')">
         Linkedin
       </a>
-      <a id="github" class="container-2" target="_blank" href="https://github.com/uys2000"
-        @click="sendData('github')">
+      <a id="github" class="container-2" target="_blank" href="https://github.com/uys2000" @click="sendData('github')">
         Github
       </a>
       <a id="github-interviews" class="container-2" target="_blank" href="https://github.com/uys2000-interviews"
@@ -51,6 +50,9 @@ export default defineComponent({
     }, 500);
   },
   setup() {
+    definePageMeta({
+      keepalive: true,
+    })
     useHead({
       title: "Mehmet Uysal | Links",
       meta: [

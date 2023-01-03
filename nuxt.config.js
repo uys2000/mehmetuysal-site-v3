@@ -20,7 +20,7 @@ export default defineNuxtConfig({
           name: "keywords",
           content: "Mehmet Uysal, Portfolio, Full Stack Web Developer",
         },
-        { itemprop: "url", content: "https://mehmetuysal.tech/" },
+        { itemprop: "url", content: "https://mehmetuysal.dev/" },
         { itemprop: "name", content: "Mehmet Uysal" },
         { itemprop: "alternateName", content: "uys2000" },
         { "http-equiv": "Content-Type", content: "text/html; charset=utf-8" },

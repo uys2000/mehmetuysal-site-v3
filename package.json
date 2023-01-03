@@ -18,8 +18,7 @@
     "firebase": "9.13.0",
     "firebase-admin": "^11.4.1",
     "multiple.js": "^0.0.1",
-    "nuxt": "^3.0.0",
-    "vue-chartjs": "^5.1.0"
+    "nuxt": "^3.0.0"
   },
   "devDependencies": {
     "@nuxt/content": "^2.3.0",

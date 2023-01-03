@@ -27,7 +27,6 @@
     <button ref="b" @click="changeMode">
       {{ !isPhy ? "I dont have physical keyboard" : "I have physical keyboard" }}
     </button>
-
   </div>
 </template>
 <script lang="ts">

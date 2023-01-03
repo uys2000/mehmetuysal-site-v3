@@ -4,6 +4,17 @@
     <slot />
   </div>
 </template>
+<script lang="ts">
+
+export default defineComponent({
+  mounted() {
+    setTimeout(() => {
+      const path = this.$route.path.split("/")
+      sendAnalyticsData("general", `landing_${path[path.length - 1]}`)
+    }, 1000);
+  }
+})
+</script>
 <style >
 .page-enter-active,
 .page-leave-active {

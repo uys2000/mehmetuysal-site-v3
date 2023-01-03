@@ -1,16 +1,17 @@
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { getFirestore, doc, addDoc, setDoc, updateDoc, Timestamp, serverTimestamp, collection, increment, query, where, getDoc, orderBy, getDocs, limit } from "firebase/firestore"
-import { getAnalytics } from "firebase/analytics";
+//import { getAnalytics } from "firebase/analytics";
 import { Execute } from "../types/terminal"
+import settings from "../settings.json"
 
-let analytics: any;
+//let analytics: any;
 let auth: any;
 let db: any;
 
-export const initializeAnalytics = async function () {
-  analytics = await getAnalytics();
-  return analytics
-}
+//export const initializeAnalytics = async function () {
+  //analytics = await getAnalytics();
+  //return analytics
+//}
 export const initializeAuth = async function () {
   auth = await getAuth()
   return auth
@@ -19,7 +20,6 @@ export const initializeFirebase = async function () {
   db = await getFirestore()
   return db
 }
-
 export const signFirebase = async function (mail: string, pass: string) {
   const userCredential = await signInWithEmailAndPassword(auth, mail, pass)
   return userCredential.user;
@@ -37,6 +37,10 @@ export const setCommand = function (outerCommmand: string, innerCommmand: string
   )
 }
 export const sendAnalyticsData = function (type: "general" | "link" | "terminal", name: string) {
+  if (settings.develop == true) {
+    console.log("in develop mode");
+    return new Promise(s => (true))
+  }
   const table = type == "general" ? "AnalyticsGeneral" : type == "link" ? "AnalyticsLink" : "AnalyticsTerminal"
   const data = { timestamp: serverTimestamp(), name: name }
   const colRef = collection(db, table)
