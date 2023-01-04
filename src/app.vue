@@ -26,6 +26,7 @@ oooo  oooo  oooo    ooo  .oooo.o       ]8P' 888    888 888    888 888    888
  'V88V"V8P'     .8'     8""888P' 8888888888  'Y8bd8P'   'Y8bd8P'   'Y8bd8P'  
             .o..P'                                                           
             'Y8P'
+github repo https://github.com/uys2000/mehmetuysal-site-v3
 data/chartTypes = ["bar", "pie", "doughnut", "line", "polarArea", "radar"] 
 You can check out recorded data with https://mehmetuysal.dev/data/bar 
 `
