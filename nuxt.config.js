@@ -25,9 +25,17 @@ export default defineNuxtConfig({
         { itemprop: "alternateName", content: "uys2000" },
         { "http-equiv": "Content-Type", content: "text/html; charset=utf-8" },
       ],
-      link: [{ rel: "icon", href: "/favicon.ico" }],
+      script: [
+        {
+          src: "https://www.googletagmanager.com/gtag/js?id=G-7HKKV5SZYL",
+          async: true,
+        },
+        { src: "/js/analitics.js" }
+      ],
+        link: [{ rel: "icon", href: "/favicon.ico" }],
     },
   },
+  ssr:true,
   modules: ["@nuxt/content", pinia],
   buildModules: ["@nuxt/typescript-build"],
   srcDir: "src/",
@@ -41,7 +49,7 @@ export default defineNuxtConfig({
     dirs: ["stores"],
   },
   css: ["~/assets/css/tailwind.css"],
-  plugins: ["~/plugins/osa.ts", "~/plugins/firebase.client.ts"],
+  plugins: ["~/plugins/osa.ts", "~/plugins/firebase.client.ts", '~/plugins/gtag.ts'],
   postcss: {
     plugins: {
       tailwindcss: {},
@@ -50,5 +58,8 @@ export default defineNuxtConfig({
   },
   nitro: {
     preset: "firebase",
-  },
+    prerender: {
+      routes: ['/user/1', '/user/2']
+    }
+  }
 });
